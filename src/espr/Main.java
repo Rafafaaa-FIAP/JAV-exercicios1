@@ -6,7 +6,7 @@ public class Main {
 		
 		Exercicios exercicios = new Exercicios();
 		
-		exercicios.exerc9();
+		exercicios.exerc10();
 		
 	}
 

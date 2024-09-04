@@ -197,5 +197,50 @@ public class Exercicios {
 	public void exerc10() {
 		/* Validador de Número de Telefone
 		   Crie um programa que solicite ao usuário que insira um número de telefone no formato `(DDD) XXXX-XXXX` e valide se o número de telefone é válido. */
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.print("Digite um telefone no formato (DDD) XXXX-XXXX: ");
+		String tel = input.nextLine();
+		
+		String[] caracteres = tel.split("");
+		
+		boolean erro = false;
+		
+		if (tel.length() != 15) {
+			erro = true;
+		}
+		else {
+			for (int i = 0; i < tel.length(); i++) {
+				String c = caracteres[i];
+				
+				if (i == 0 && !c.equals("(")) {
+					erro = true;
+				}
+				else if (i == 4 && !c.equals(")")) {
+					erro = true;
+				}
+				else if (i == 5 && !c.equals(" ")) {
+					erro = true;
+				}
+				else if (i == 10 && !c.equals("-")) {
+					erro = true;
+				}
+				else if (i != 0 && i != 4 && i != 5 && i != 10 && !Character.isDigit(tel.charAt(i))) {
+					erro = true;
+				}
+				
+				if (erro) {
+					break;
+				}
+			}
+		}
+
+		if (erro) {
+			System.out.print("Telefone inválido!");
+		}
+		else {
+			System.out.print("Telefone válido!");
+		}
 	}
 }

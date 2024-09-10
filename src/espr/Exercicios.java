@@ -242,5 +242,7 @@ public class Exercicios {
 		else {
 			System.out.print("Telefone válido!");
 		}
+		
+		input.close();
 	}
 }
